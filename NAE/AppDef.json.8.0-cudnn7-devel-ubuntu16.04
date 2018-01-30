@@ -1,0 +1,64 @@
+{
+    "name": "nvidia/cuda 8.0-cudnn7-devel-ubuntu16.04",
+    "description": "nvidia/cuda:8.0-cudnn7-devel-ubuntu16.04 ephemeral dev/test environment with Nimbix Desktop.",
+    "author": "NVIDIA",
+    "licensed": true,
+    "classifications": [
+        "Software Development/Software Testing"
+    ],
+    "machines": [
+        "ng[3-9]",
+        "ng[a-z][3-9]"
+    ],
+    "vault-types": [
+        "FILE",
+        "BLOCK",
+        "BLOCK_ARRAY",
+        "OBJECT"
+    ],
+    "commands": {
+        "Batch": {
+            "path": "/bin/bash",
+            "interactive": false,
+            "name": "Batch",
+            "description": "Run a batch command using /bin/bash.  The output may be monitored directly in your web browser.",
+            "parameters": {
+                "-l": {
+                    "name": "-l",
+                    "description": "-l",
+                    "type": "CONST",
+                    "value": "-l",
+                    "positional": true,
+                    "required": true
+                },
+                "-c": {
+                    "name": "-c",
+                    "description": "-c",
+                    "type": "CONST",
+                    "value": "-c",
+                    "positional": true,
+                    "required": true
+                },
+                "command": {
+                    "name": "Command",
+                    "description": "Command to run",
+                    "type": "STR",
+                    "positional": true,
+                    "required": true
+                }
+            }
+        },
+        "Desktop": {
+            "path": "/sbin/init",
+            "interactive": true,
+            "name": "Desktop",
+            "description": "Launch a full session and connect to it directly in your browser or via SSH.",
+            "parameters": {}
+        }
+    },
+    "image": {
+        "type": "image/png",
+        "data": "iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAKZklEQVR42u2bf2xV5RnHP89d1zSuIU3nSEeANYY1jDBiOkIYkoBA1gMbm0JkjB/+wI0fginM3YpORxgxBM4UN+fCIGicgCgIDgzeLs6owOYYI4YwRWwIwx8jpAPGInZd7bs/znNu3/v23Nvb9va2xvNNTnr7nPe89z3P+/x+3gsxYsSIESNGjBgxYsSIESPGZwtSzC9LprgLuLOf37kdYapfx5VCTFZS5MUPE6i1CSZiF3PR7Hs9oQHtmMK9d6LY229E30Y6PueiGXF0pZe0QiPxaTI0RgpEKyCKpsLJFKWqPs0m0KcS4BqE0nyNtORpxHPRjKXLA5aBDSkwUAVMAaYCo4EaYBPwZeu7yzCMAMYYuFHHD/k0eeGCMbChEYyhHJhrYD4wQciULiPg19Gm/7YBLcAxvZ5QKZ2snnpW1Pq663Rc2oAMY5IphgLLgcUiVJrMVV8FzgHvAyeBS0C70pqAUwgX/bpOElwN/BRYIFBmBMR02LLwc7dphnbgS77HxX5nYDLFYGAtsAihNG1nDM3AHmAfcBi46nuQTLEeYbUdXmBoBY4CO4CdvtcRn6lUjwR+CXzLXm2UKcuLNhAYmExRAiwG1olQaToCrbPAemC773E14rn1IqzOpmrGcAFYB2zxPVqt5xLAD4GHRSjvjTqb/mZgMsUoYJvAeMurtQAbgQ1ZGIc6h2XAOLV/FcAo/ZsR9AJvAncAb/pexjyjgQMI1W50nBE956LRTwy0pGCTwDXW7p4AFvoeJzLGN1KGYTLwA2AaUIWw1q/j544kj1NmzRUC6dJ3bQHqEbbY9lHNxvMCE3skgf3BwGSKSmAbcBOACJjgLV8A5ttSl0xRDqwA7kYY4kjWGpuBzndUAT6wANsBwCNA0vdot8aWATsQZg14J5JMUQP8XoSRGdpg2KWS16YSB4ZpwFaEascLvwK8BfxHQ5bXs6h6ArgL2IRQIqQ3ajOw3GFiKfAsEmxqfzmRRBfMqwUOiTAyvRgDGA4Ct6WZlyKB4SGERhGqJVyo4TfAV3yPmb7HvcAXRHgJeC+ZYpHaxjR8j3YRfg3cprYKCbZ4KfBAsjFjbCswH8MJichYstGKHUhXA4MNGWrRCtwZekmVmqeBeWLS6noFWCiwf6Pn2CMDQmASDAwCHnXuJ4AKlZSElcMOi4iEKyEjCgiKCBFOxPRFFJ1HMeEgcCZkjL5AmC3YXm2Es7u+73VmXoTN2KBSbqvlNuBx0c3V735ZVdi1mY0CQ0XHqeR3SGAEragM9D1agMdMZ524O9kYPKsvtdXRm5sbGqPnzpgrKCQ8nkxR0pCiAtiHcHtGOQuOA7c4cWEV8EeEUeGcbukqG60/ylmbMTSlJShYxHgMU6wx200QRIdjao3By3MN44H7TWBrZzjqfAqY7ntctphXDbwmFvP6s5zVJQNVCu8F2tNOREgAGxqCOC4cc59jZjZpSJO7PCUgwloRRmcYe8NR4Ebf44LFvOuBIyLUOPO1YlhlDPUYLhfTieRbUN1rDLtMZlmj1sBKa8wuDDsxaSbXAFvVyWQ4EfQKDbtDazeGLcAk3+N8GCIlUywADgFDDBnPXsBQJ/Co7/Er4KvG8IgxtDjj+sSR5MVAtXP1GM45u/lgMsV11pjlBk5LB5PnAg9rxhEtgSYjS2gGvg8sUakOAnPDb4GnBMod53AS+Kbv8WrosHyPZt/jHuDrGPb2qxNxmNicjs8krXqDgN2hqqqtqjPQZK14JdCoeWx0/wMuG/gF8DXfY0/obZMpJgB/FVisZiPtHAz8Tpl3Jst6m4DZJsi/+8wOdmtKrdP9BGGDKPM1K9mrKV2Lla8+heBZVZA2YDtwERipm3cKOAL8ISxjaXA9HFiDcCtoRtKxjGYM9QI7N3pdZlFjgGdCbz0gyllao1sn8EDaw5l0zHhLmKIlG0lgmAU8BNRo/rzG97LmwglgDHAPMEecXomWoZ4D6m3HkmWuCuBBYIUIpQOqnKWSmDCwRuBnTpPmDWC27/GhU3GZAnwP+AB4ArigWdBQ7ZVMAmZo7yQRZhDW1MeBJMIrdmUmgnGlmvbdp9WfgVPOylLjWyrwmFE1U5W+AKwS2LXRSv7DgiqwOsxzQxuco4l+VAu0+31nrgiJuxVYBZqLF6mc1eOmkhr6zckUTcA2hOHKjMEGdhhDfTLFBiCVUXkRyLCfNsNMulfyogny62PZGNeQosQEEvsjYB5ChVWyyihnYdNMPzqRHBJQrr2RFZ36vIbLWs46AgxTdR6kBdNmvc4AfwPeEDi7MQvTLDs5G5iDFVB3A4EE1g2AplKESteo8Z5jN5ksR5DVieSYsxyYAEwHZthZyEDoiRSsL6wqfbohxUIDSQzzTCApY4XAE3a1XeqcrtNeyQ2aJ48DytJq2J3SVRHKWX16vE2r1JXqXa8HvghcEmgzgR0sU9oQZdpQ4FrpwzM7hgHUF+6BmgdtTWNlBkYrPNlooeRZxYeQEz2hDVgV7oYEdEqIu6SJXcPoJa3AIlN0BvbmXEshaIW2hcVm4DvGcNA9OmoijpNmpXXHYWR3Iq3EiBEjRowY/Q3b44eZQTa0Qvp4Ljmea9dCQRTK6MgywnGlTjTQovdKoNMB9Fxzd/U9fY6xwH9zXB8D/wReAuZZLz2E4NBQOO5fWgBwUePMd0Dp2xz6WKWvy7GOS8A7wJOaL7t421lPNvxY57OvD7CO73UH40g3F/O6DliSd8i5F9WtWOmMWaz0Jx36OKWvz3MdnxC0Dez8+V3r/r9zxMBvZ5lzQb5M603S/h1gjX5+1rk3M2L8zdbnNoIz1N3BReA8dPqNWwK4n6CU3x1MJmhuhThvfV5eCAk8oBWSUVpNuSlC0t7TFxgO/M+iv+tszrWqTuF966Ba3hI4zWJYjW6aff8fls3MRwJ3W2P+4mjIJ1o96hUDd0SMqVCbYn9Rld77s0O3d3duFvXtCQNtFXQ3tDZPBlYBH1ljlqot/9iiPd4XKnwZeNV5frh+ft6he1lUuhXY76hzT9BG0Dexka/ULLAcRQtBu/RDgtaDvemD+sIGNmUpSOyBjF7GTCuksJl52LE3vcEp5//KPIVmifX/HrWvYURgzzWnLxj4URb6WYLzzyEm6g5OdF5sdwFDr8qIOLErTAFGWP8/Y31OOU5qSbHLWfssG1aqi52UQ317i6nO/+fyeOYOJ2ivVHUNcdqKRWvVgZ4sFgNfdGKy6WQeBz6ptqYQ8Ah+t2JL3/EunqkAvutkLE93oaELCc5HFoWBbxH0eEMVmedE9b1R32XAt/WlRxO0Om0T9Cf97lyYkyVLyoXbCXreVwsdSEehneDHNyHKne/Y24u5Z2mstlTtqj3vFYJjHV3Z+2WOqn4e+FzEtcUaN1ilNgEs0qukrxjohjM2TuiiC71hhwl+rH0sj1zfDnOe01CoPeJyNWWJBu83AN8gOB3RSYXPqL7bXjUKLziq4oY1xwh+H1fSRfiDFTq85qwjTA//nqMy1KxrjFLbpKWqYZx51Xm/l3Mw+3WCH43bFZ33NXcujQifYsSIESNGjBgxYsSIESNGjM8M/g+7TlmV6g3Y4QAAAABJRU5ErkJggg=="
+    },
+    "id": "jarvice-ubuntu_nvidia"
+}
