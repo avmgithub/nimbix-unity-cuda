@@ -7,6 +7,7 @@
         "Software Development/Software Testing"
     ],
     "machines": [
+        "*",
         "ng[3-9]",
         "ng[a-z][3-9]"
     ],

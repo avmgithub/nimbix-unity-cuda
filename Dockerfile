@@ -1,4 +1,5 @@
-FROM nvidia/cuda:8.0-cudnn7-devel-ubuntu16.04
+#FROM nvidia/cuda:8.0-cudnn7-devel-ubuntu16.04
+FROM nvidia/cudagl:9.0-devel-ubuntu16.04
 
 RUN apt-get -y update && \
     apt-get -y install curl && \
@@ -17,9 +18,6 @@ EXPOSE 22
 # for standalone use
 EXPOSE 5901
 EXPOSE 443
-
-# Install CUDA samples
-RUN apt-get -y install cuda-samples-8-0
 
 # Fix VirtualGL for sudo
 RUN chmod u+s /usr/lib/libdlfaker.so /usr/lib/libvglfaker.so
