@@ -23,5 +23,6 @@ EXPOSE 443
 RUN chmod u+s /usr/lib/libdlfaker.so /usr/lib/libvglfaker.so
 
 # Metadata
+ADD ./NAE/nvidia.cfg /etc/NAE/nvidia.cfg
 COPY NAE/AppDef.json.8.0-cudnn7-devel-ubuntu16.04 /etc/NAE/AppDef.json
 RUN curl --fail -X POST -d @/etc/NAE/AppDef.json https://api.jarvice.com/jarvice/validate
