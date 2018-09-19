@@ -22,8 +22,8 @@ RUN apt-get install git-lfs && sudo git lfs install
 
 # Install conda py3
 RUN curl https://repo.continuum.io/miniconda/Miniconda3-4.5.4-Linux-x86_64.sh \
-    -o miniconda.sh #&&  \
-#    bash ~/miniconda.sh -b -p ~/miniconda && \
+     -o /home/nimbix/miniconda.sh &&  \
+     bash /home/nimbix/miniconda.sh -b -p /home/nimbix/miniconda  # && \
 #    export PATH=~/miniconda/bin:$PATH && \
 #    conda install -y pyyaml cmake && \
 #    pip install numpy && \
