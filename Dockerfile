@@ -23,7 +23,7 @@ RUN apt-get update && \
 # Install conda py3
 RUN curl https://repo.continuum.io/miniconda/Miniconda3-4.5.4-Linux-x86_64.sh \
     -o /miniconda.sh &&  \
-    bash /miniconda.sh -b -p /opt/miniconda  # && \
+    bash /miniconda.sh -b -p /opt/miniconda  && \
     export PATH=/opt/miniconda/bin:$PATH && \
     conda install -y pyyaml cmake && \
     pip install numpy && \
