@@ -1,5 +1,9 @@
 #FROM nvidia/cuda:8.0-cudnn7-devel-ubuntu16.04
-FROM nvidia/cudagl:9.0-devel-ubuntu16.04
+# use cudagl for GL based applications
+#FROM nvidia/cudagl:9.0-devel-ubuntu16.04
+
+# use plain cuda for pytorch builds
+FROM nvidia/9.1-cudnn7-devel-ubuntu16.04
 
 RUN apt-get -y update && \
     apt-get -y install curl && \
